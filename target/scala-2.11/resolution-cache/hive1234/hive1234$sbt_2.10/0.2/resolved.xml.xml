@@ -4,7 +4,7 @@
 		module="hive1234$sbt_2.10"
 		revision="0.2"
 		status="integration"
-		publication="20220323063546"
+		publication="20220324124422"
 	/>
 	<configurations>
 		<conf name="default" visibility="public"/>

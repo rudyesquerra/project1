@@ -4,6 +4,8 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/HIVE1234.iml" filepath="$PROJECT_DIR$/.idea/modules/HIVE1234.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/HIVE1234-build.iml" filepath="$PROJECT_DIR$/.idea/modules/HIVE1234-build.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Project1.HIVE1234.iml" filepath="$PROJECT_DIR$/.idea/modules/Project1.HIVE1234.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/project.HIVE1234-build.iml" filepath="$PROJECT_DIR$/.idea/modules/project.HIVE1234-build.iml" />
     </modules>
   </component>
 </project>

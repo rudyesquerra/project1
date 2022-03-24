@@ -4,7 +4,7 @@
 		module="hive1234$sources_2.11"
 		revision="0.2"
 		status="integration"
-		publication="20220323063600"
+		publication="20220324124446"
 	/>
 	<configurations>
 		<conf name="compile" visibility="public" description=""/>
