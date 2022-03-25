@@ -22,15 +22,32 @@ object Main {
     if (spark.catalog.tableExists("burritos_data") && spark.catalog.tableExists("burritos_location")) {
       print("Enter username: ")
       val userInput = readLine()
-//      print("Enter password: ")
-//      val userPassword = readLine()
+
 //      println(userInput)
 //      println(userPassword)
       val cdf = spark.read.csv("credentials.csv")
-      cdf.show()
-      val check = cdf.filter((s"_c0 = '$userInput'")).count()
-      println(check)
-      
+//      cdf.show()
+      val filterUser = cdf.filter((s"_c0 = '$userInput'"))
+      val checkUser = filterUser.count()
+//      val filterPassword = cdf.filter((s"_c1 = '$userPassword'"))
+//      val checkPassword = filterPassword.count()
+//      cdf.filter((s"_c0 = '$userInput'")).filter(s"_c1 = '$userPassword'").show()
+//      cdf.filter((s"_c0 = '$userPassword'")).
+//
+//      //      cdf.filter(s"_c0 = '$userInput'").filter(s"_c1 = '$userPassword'")
+      if(checkUser > 0){
+        println("User Exists")
+        print("Enter password: ")
+        val userPassword = readLine()
+        if(filterUser.select("_c1").where(s"_c1 == '${userPassword}'").count() == 1){
+          println("Password entered correctly")
+        } else {
+          println("Wrong password")
+        }
+      } else {
+        println("User not found")
+      }
+
     } else {
           spark.sql("create table IF NOT EXISTS credentials(username varchar(100), password varchar(50))")
           spark.sql("INSERT INTO credentials VALUES('admin','admin'),('basic','basic')")
