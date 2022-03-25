@@ -25,8 +25,10 @@ object Main {
 
 //      println(userInput)
 //      println(userPassword)
-      val cdf = spark.read.csv("credentials.csv")
-//      cdf.show()
+      var cdf = spark.read.csv("credentials.csv")
+                .withColumnRenamed("_c0","username")
+                .withColumnRenamed("_c1","password")
+
       val filterUser = cdf.filter((s"_c0 = '$userInput'"))
       val checkUser = filterUser.count()
 //      val filterPassword = cdf.filter((s"_c1 = '$userPassword'"))
@@ -41,6 +43,12 @@ object Main {
         val userPassword = readLine()
         if(filterUser.select("_c1").where(s"_c1 == '${userPassword}'").count() == 1){
           println("Password entered correctly")
+          userInput match{
+            case "admin" =>
+                println("Enter 1 to create own query /n2 to read query from menu /n3 to update your password /n 4 to delete a user")
+            case _ =>
+              println("Choose 1 thru 6 queries")
+          }
         } else {
           println("Wrong password")
         }
