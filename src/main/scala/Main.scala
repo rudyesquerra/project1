@@ -1,6 +1,7 @@
 import org.apache.log4j.{Level, Logger}
 import org.apache.spark.sql.SparkSession
 
+
 object Main {
 
   def main(args: Array[String]): Unit = {
@@ -19,30 +20,33 @@ object Main {
     println("created spark session")
 
     if (spark.catalog.tableExists("burritos_data") && spark.catalog.tableExists("burritos_location")) {
-      println("Table burritos_data and burritos_location exists")
+      print("Enter username: ")
+      val userInput = readLine()
+//      print("Enter password: ")
+//      val userPassword = readLine()
+//      println(userInput)
+//      println(userPassword)
+      val cdf = spark.read.csv("credentials.csv")
+      cdf.show()
+      val check = cdf.filter((s"_c0 = '$userInput'")).count()
+      println(check)
+      
     } else {
-          spark.sql("SELECT * FROM burritos_data").show(300, false)
+          spark.sql("create table IF NOT EXISTS credentials(username varchar(100), password varchar(50))")
+          spark.sql("INSERT INTO credentials VALUES('admin','admin'),('basic','basic')")
+        //      spark.sql("ALTER table credentials SET TBLPROPERTIES('skip.header.line.count'='1')")
+          spark.sql("select * from credentials").show()
+
           spark.sql("create table IF NOT EXISTS burritos_data(id Int, location String, btype String, date Date, neighborhood String, address String, url String, yelp Float, google Float, chips String, cost Float, hunger Float, mass Int, density Double, length Float, circum Float, volume Float, tortilla Float, temp Float, meat Float, fillings Float, meat_filling Float, uniformity Float, salsa_quality Float, synergy Float, wrap Float, overall Float, rec String, reviewer String, notes String, unreliable String, nonsd String, beef String, pico String, guac String, cheese String, fries String, sourc String, pork String, chicken String, shrimp String, fish String, rice String, beans String, lettuce String, tomato String, bpepper String, carrots String, cabbage String, sauce String, salsa String, cilantro String, onion String, taquito String, pineapple String, ham String, chile String, nopales String, lobster String, queso String, egg String, mushroom String, bacon String, sushi String, avocado String, corn String, zucchini String) row format delimited fields terminated by ',' ")
           spark.sql("LOAD DATA LOCAL INPATH 'Burritos1.csv' INTO TABLE burritos_data ")
+          spark.sql("SELECT * FROM burritos_data").show(300, false)
 
           spark.sql("create table IF NOT EXISTS burritos_location(id_Number Int, location String, yelp Float, google Float, average Float) row format delimited fields terminated by ',' ")
-          spark.sql("LOAD DATA LOCAL INPATH 'Burritos1_avg.csv' INTO TABLE burritos_location ")
+          spark.sql("LOAD DATA LOCAL INPATH 'Burritos1_avg.csv' INTO TABLE burritos_location")
           spark.sql("SELECT * FROM burritos_location ORDER BY location ASC").show(500, false)
     }
 
 
-
-
-
-
-    /*
-    * What restaurant has the less expensive burrito with the best yelp review.
-Which top three neighborhoods offer the burritos with google and yelp reviews combined with an average of 3.5+
-What are the top five burrito restaurants where the combination of meat and salsa average 4+
-What is the place with the burrito has an overall qualification of 4 which includes pico de gallo an guac.
-What is the average cost of a burrito in San Diego order by neighborhood in ascendent order.
-What type of meatless burrito has the worst overall qualifications.
-    * */
 
 //    println("What restaurant has the less expensive burrito with the best yelp review.")
 //    spark.sql("SELECT location, btype, neighborhood, yelp, google, cost FROM burritos_data WHERE yelp > 4 AND neighborhood !='Houston' ORDER BY cost ASC LIMIT 5").show()
