@@ -1,5 +1,6 @@
 import org.apache.log4j.{Level, Logger}
 import org.apache.spark.sql.SparkSession
+import org.apache.spark.sql.functions.{col, when}
 
 
 object Main {
@@ -25,11 +26,11 @@ object Main {
 
 //      println(userInput)
 //      println(userPassword)
-      var cdf = spark.read.csv("credentials.csv")
+      var cdf = spark.read.option("header", true).csv("credentials.csv") //created schema reading from a csv file
                 .withColumnRenamed("_c0","username")
                 .withColumnRenamed("_c1","password")
 
-      val filterUser = cdf.filter((s"_c0 = '$userInput'"))
+      val filterUser = cdf.filter((s"username = '$userInput'"))
       val checkUser = filterUser.count()
 //      val filterPassword = cdf.filter((s"_c1 = '$userPassword'"))
 //      val checkPassword = filterPassword.count()
@@ -41,11 +42,39 @@ object Main {
         println("User Exists")
         print("Enter password: ")
         val userPassword = readLine()
-        if(filterUser.select("_c1").where(s"_c1 == '${userPassword}'").count() == 1){
+        if(filterUser.select("password").where(s"password == '${userPassword}'").count() == 1){
           println("Password entered correctly")
           userInput match{
             case "admin" =>
-                println("Enter 1 to create own query /n2 to read query from menu /n3 to update your password /n 4 to delete a user")
+                println("Enter 1 to create own query \n2 to read query from menu \n3 to update your password \n4 to delete a user")
+              val option = readInt()
+              option match {
+                case 1 =>{
+                  print("Entered option 1")
+                }
+                case 2 => {
+                  print("Entered option 2")
+
+                }
+                case 3 => {
+                  print("Entered option 3")
+                  cdf.show()
+                  filterUser.show()
+                  filterUser.select("password")
+                  println("Enter a new password")
+                  val newPassword = readLine()
+//                  spark.sql(s"SELECT * FROM credentials SET password='$newPassword' WHERE username='$userInput")
+//                  val when_Cfd = cdf.withColumn("username","")
+//                  filterUser.withColumn("password",s"$newPassword").show()
+                  val newDf = cdf.withColumn("password", when(col("password") === s"$userPassword", s"$newPassword").otherwise(col("password")))
+                  newDf.show()
+                  newDf.write.format("csv").mode("overwrite").save("credentials")
+                }
+                case 4 => {
+                  print("Entered option 4")
+
+                }
+              }
             case _ =>
               println("Choose 1 thru 6 queries")
           }
