@@ -20,76 +20,74 @@ object Main {
 
     println("created spark session")
 
-    if (spark.catalog.tableExists("burritos_data") && spark.catalog.tableExists("burritos_location")) {
+    if (spark.catalog.tableExists("burritos_data")
+      && spark.catalog.tableExists("burritos_location")
+      && spark.catalog.tableExists("credentials")){
+
+      var cdfTable = spark.table("credentials").toDF()
+      cdfTable.show()
+      cdfTable.printSchema()
+
       print("Enter username: ")
       val userInput = readLine()
+      print("Enter password: ")
+      val userPassword = readLine()
 
-//      println(userInput)
-//      println(userPassword)
-      var cdf = spark.read.option("header", true).csv("credentials.csv") //created schema reading from a csv file
-                .withColumnRenamed("_c0","username")
-                .withColumnRenamed("_c1","password")
+      println("This should be the table credentials with the updated password")
+      spark.sql("select * from credentials").show()
 
-      val filterUser = cdf.filter((s"username = '$userInput'"))
-      val checkUser = filterUser.count()
-//      val filterPassword = cdf.filter((s"_c1 = '$userPassword'"))
-//      val checkPassword = filterPassword.count()
-//      cdf.filter((s"_c0 = '$userInput'")).filter(s"_c1 = '$userPassword'").show()
-//      cdf.filter((s"_c0 = '$userPassword'")).
-//
-//      //      cdf.filter(s"_c0 = '$userInput'").filter(s"_c1 = '$userPassword'")
-      if(checkUser > 0){
-        println("User Exists")
-        print("Enter password: ")
-        val userPassword = readLine()
-        if(filterUser.select("password").where(s"password == '${userPassword}'").count() == 1){
-          println("Password entered correctly")
-          userInput match{
-            case "admin" =>
-                println("Enter 1 to create own query \n2 to read query from menu \n3 to update your password \n4 to delete a user")
-              val option = readInt()
-              option match {
-                case 1 =>{
-                  print("Entered option 1")
-                }
-                case 2 => {
-                  print("Entered option 2")
+      val checkUser = spark.sql(s"SELECT * FROM credentials WHERE username='${userInput}' AND password='${userPassword}'").count()
 
-                }
-                case 3 => {
-                  print("Entered option 3")
-                  cdf.show()
-                  filterUser.show()
-                  filterUser.select("password")
-                  println("Enter a new password")
-                  val newPassword = readLine()
-//                  spark.sql(s"SELECT * FROM credentials SET password='$newPassword' WHERE username='$userInput")
-//                  val when_Cfd = cdf.withColumn("username","")
-//                  filterUser.withColumn("password",s"$newPassword").show()
-                  val newDf = cdf.withColumn("password", when(col("password") === s"$userPassword", s"$newPassword").otherwise(col("password")))
-                  newDf.show()
-                  newDf.write.format("csv").mode("overwrite").save("credentials")
-                }
-                case 4 => {
-                  print("Entered option 4")
-
-                }
+      if(checkUser > 0) {
+        userInput match {
+          case "admin" =>
+            println("Enter \n1 to create own query \n2 to read query from menu \n3 to update your password \n4 to delete a user")
+            val option = readInt()
+            option match {
+              case 1 => {
+                print("Entered option 1")
               }
-            case _ =>
-              println("Choose 1 thru 6 queries")
-          }
-        } else {
-          println("Wrong password")
+              case 2 => {
+                print("Entered option 2")
+
+              }
+              case 3 => {
+                println("Entered option 3")
+                print("Enter a new password: ")
+                val newPassword = readLine()
+
+                val updatedCdf = cdfTable.withColumn("password", when(col("password") === s"$userPassword", s"$newPassword").otherwise(col("password")))
+                updatedCdf.show()
+//                spark.sql("DROP TABLE IF EXISTS credentials")
+                updatedCdf.write.mode("overwrite").saveAsTable("credentials2")
+                spark.sql("DROP TABLE IF EXISTS credentials")
+                spark.sql("ALTER TABLE credentials2 RENAME TO credentials")
+//                spark.sql("SELECT * INTO credentials FROM credentials2")
+//                spark.sql("DROP TABLE IF EXISTS credentials2")
+              }
+              case 4 => {
+                print("Entered option 4")
+
+              }
+              case _ =>
+                println("Choose 1 thru 6 queries")
+            }
+          case _ =>
         }
-      } else {
-        println("User not found")
-      }
+      } else println("User not found")
+
 
     } else {
-          spark.sql("create table IF NOT EXISTS credentials(username varchar(100), password varchar(50))")
+          var cdf = spark.read.option("header", true).csv("credentials.csv") //created schema reading from a csv file
+          .withColumnRenamed("_c0","username")
+          .withColumnRenamed("_c1","password")
+
+          cdf.write.mode("overwrite").saveAsTable("credentials")
+
+/*          spark.sql("create table IF NOT EXISTS credentials(username varchar(100), password varchar(50))")
           spark.sql("INSERT INTO credentials VALUES('admin','admin'),('basic','basic')")
         //      spark.sql("ALTER table credentials SET TBLPROPERTIES('skip.header.line.count'='1')")
-          spark.sql("select * from credentials").show()
+          spark.sql("select * from credentials").show()*/
 
           spark.sql("create table IF NOT EXISTS burritos_data(id Int, location String, btype String, date Date, neighborhood String, address String, url String, yelp Float, google Float, chips String, cost Float, hunger Float, mass Int, density Double, length Float, circum Float, volume Float, tortilla Float, temp Float, meat Float, fillings Float, meat_filling Float, uniformity Float, salsa_quality Float, synergy Float, wrap Float, overall Float, rec String, reviewer String, notes String, unreliable String, nonsd String, beef String, pico String, guac String, cheese String, fries String, sourc String, pork String, chicken String, shrimp String, fish String, rice String, beans String, lettuce String, tomato String, bpepper String, carrots String, cabbage String, sauce String, salsa String, cilantro String, onion String, taquito String, pineapple String, ham String, chile String, nopales String, lobster String, queso String, egg String, mushroom String, bacon String, sushi String, avocado String, corn String, zucchini String) row format delimited fields terminated by ',' ")
           spark.sql("LOAD DATA LOCAL INPATH 'Burritos1.csv' INTO TABLE burritos_data ")

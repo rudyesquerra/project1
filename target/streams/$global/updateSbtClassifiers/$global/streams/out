@@ -1,6 +1,7 @@
 [debug] Other repositories:
 [debug] Default repositories:
 [debug] Using inline dependencies specified in Scala.
+[debug] no default cache defined: set to C:\Users\rodol\.ivy2\cache
 [debug] :: resolving dependencies :: hive1234#hive1234$sbt_2.10;0.2
 [debug] 	confs: [default]
 [debug] 	validate = true
@@ -34,7 +35,6 @@
 [debug] dependency descriptor has been mediated: dependency: org.scala-lang#scala-library;2.10.7 {compile=[default(compile)]} => dependency: org.scala-lang#scala-library;2.10.7 {compile=[default(compile)]}
 [debug] == resolving dependencies org.scala-sbt#main;0.13.18->org.scala-lang#scala-library;2.10.7 [compile->default(compile)]
 [debug] dependency descriptor has been mediated: dependency: org.scala-lang#scala-library;2.10.7 {compile=[default(compile)]} => dependency: org.scala-lang#scala-library;2.10.7 {compile=[default(compile)]}
-[debug] no default cache defined: set to C:\Users\rodol\.ivy2\cache
 [debug] dependency descriptor has been mediated: dependency: org.scala-lang#scala-library;2.10.7 {compile=[default(compile)]} => dependency: org.scala-lang#scala-library;2.10.7 {compile=[default(compile)]}
 [debug] == resolving dependencies org.scala-sbt#main;0.13.18->org.scala-lang#scala-library;2.10.7 [compile->runtime]
 [debug] == resolving dependencies org.scala-sbt#main;0.13.18->org.scala-lang#scala-library;2.10.7 [compile->compile]
@@ -1779,9 +1779,9 @@
 [debug] 	[NOT REQUIRED] org.scala-sbt#test-interface;1.0!test-interface.jar
 [debug] 	[NOT REQUIRED] org.scala-sbt#apply-macro;0.13.18!apply-macro.jar
 [debug] 	[NOT REQUIRED] org.scala-sbt#template-resolver;0.1!template-resolver.jar
-[debug] :: resolution report :: resolve 3713ms :: artifacts dl 371ms
+[debug] :: resolution report :: resolve 5541ms :: artifacts dl 399ms
 [debug] 	report for hive1234#hive1234$sbt_2.10;0.2 default produced in C:\Users\rodol\Desktop\revature\week3\Project1\target\scala-2.11\resolution-cache\reports\hive1234-hive1234$sbt_2.10-default.xml
-[debug] 	resolve done (3713ms resolve - 371ms download)
+[debug] 	resolve done (5541ms resolve - 399ms download)
 [debug] Using inline dependencies specified in Scala.
 [debug] :: resolving dependencies :: hive1234#hive1234$sources_2.10;0.2
 [debug] 	confs: [default]
@@ -2459,6 +2459,6 @@
 [debug] 	[NOT REQUIRED] com.jcraft#jsch;0.1.50!jsch.jar(src)
 [debug] 	[NOT REQUIRED] org.scala-sbt#classpath;0.13.18!classpath.jar(src)
 [debug] 	[NOT REQUIRED] org.scala-sbt#apply-macro;0.13.18!apply-macro.jar(src)
-[debug] :: resolution report :: resolve 1432ms :: artifacts dl 177ms
+[debug] :: resolution report :: resolve 1951ms :: artifacts dl 947ms
 [debug] 	report for hive1234#hive1234$sources_2.10;0.2 default produced in C:\Users\rodol\Desktop\revature\week3\Project1\target\scala-2.11\resolution-cache\reports\hive1234-hive1234$sources_2.10-default.xml
-[debug] 	resolve done (1432ms resolve - 177ms download)
+[debug] 	resolve done (1951ms resolve - 947ms download)
