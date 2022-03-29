@@ -3,6 +3,7 @@ import org.apache.spark.sql.SparkSession
 import org.apache.spark.sql.functions.{col, when}
 
 
+
 object Main {
 
   def main(args: Array[String]): Unit = {
@@ -20,13 +21,13 @@ object Main {
 
     println("created spark session")
 
-    if (spark.catalog.tableExists("burritos_data")
-      && spark.catalog.tableExists("burritos_location")
-      && spark.catalog.tableExists("credentials")){
+      if (spark.catalog.tableExists("burritos_data")
+        && spark.catalog.tableExists("burritos_location")
+        && spark.catalog.tableExists("credentials")
+        && spark.catalog.tableExists("query_data")){
 
       var cdfTable = spark.table("credentials").toDF()
-      cdfTable.show()
-      cdfTable.printSchema()
+      var queryTable = spark.table("query_data").toDF()
 
       print("Enter username: ")
       val userInput = readLine()
@@ -45,7 +46,15 @@ object Main {
             val option = readInt()
             option match {
               case 1 => {
-                print("Entered option 1")
+                println("Entered option 1")
+                println("Type your customized query: ")
+                println("Dont forget to include \"...\" !!!")
+                val query = readLine()
+                spark.sql("create table IF NOT EXISTS temp(query String)")
+                spark.sql(s"INSERT INTO temp VALUES($query)")
+                val result = query.replaceAll("\"","")
+                spark.sql(s"${result}").show()
+                spark.sql("SELECT * FROM temp")
               }
               case 2 => {
                 print("Entered option 2")
@@ -58,12 +67,9 @@ object Main {
 
                 val updatedCdf = cdfTable.withColumn("password", when(col("password") === s"$userPassword", s"$newPassword").otherwise(col("password")))
                 updatedCdf.show()
-//                spark.sql("DROP TABLE IF EXISTS credentials")
                 updatedCdf.write.mode("overwrite").saveAsTable("credentials2")
                 spark.sql("DROP TABLE IF EXISTS credentials")
                 spark.sql("ALTER TABLE credentials2 RENAME TO credentials")
-//                spark.sql("SELECT * INTO credentials FROM credentials2")
-//                spark.sql("DROP TABLE IF EXISTS credentials2")
               }
               case 4 => {
                 print("Entered option 4")
@@ -74,28 +80,24 @@ object Main {
             }
           case _ =>
         }
-      } else println("User not found")
+      } else println("Incorrect user or password")
 
 
     } else {
           var cdf = spark.read.option("header", true).csv("credentials.csv") //created schema reading from a csv file
           .withColumnRenamed("_c0","username")
           .withColumnRenamed("_c1","password")
-
           cdf.write.mode("overwrite").saveAsTable("credentials")
 
-/*          spark.sql("create table IF NOT EXISTS credentials(username varchar(100), password varchar(50))")
-          spark.sql("INSERT INTO credentials VALUES('admin','admin'),('basic','basic')")
-        //      spark.sql("ALTER table credentials SET TBLPROPERTIES('skip.header.line.count'='1')")
-          spark.sql("select * from credentials").show()*/
+          spark.sql("create table IF NOT EXISTS query_data(query String)")
 
           spark.sql("create table IF NOT EXISTS burritos_data(id Int, location String, btype String, date Date, neighborhood String, address String, url String, yelp Float, google Float, chips String, cost Float, hunger Float, mass Int, density Double, length Float, circum Float, volume Float, tortilla Float, temp Float, meat Float, fillings Float, meat_filling Float, uniformity Float, salsa_quality Float, synergy Float, wrap Float, overall Float, rec String, reviewer String, notes String, unreliable String, nonsd String, beef String, pico String, guac String, cheese String, fries String, sourc String, pork String, chicken String, shrimp String, fish String, rice String, beans String, lettuce String, tomato String, bpepper String, carrots String, cabbage String, sauce String, salsa String, cilantro String, onion String, taquito String, pineapple String, ham String, chile String, nopales String, lobster String, queso String, egg String, mushroom String, bacon String, sushi String, avocado String, corn String, zucchini String) row format delimited fields terminated by ',' ")
           spark.sql("LOAD DATA LOCAL INPATH 'Burritos1.csv' INTO TABLE burritos_data ")
-          spark.sql("SELECT * FROM burritos_data").show(300, false)
+//          spark.sql("SELECT * FROM burritos_data").show(300, false)
 
           spark.sql("create table IF NOT EXISTS burritos_location(id_Number Int, location String, yelp Float, google Float, average Float) row format delimited fields terminated by ',' ")
           spark.sql("LOAD DATA LOCAL INPATH 'Burritos1_avg.csv' INTO TABLE burritos_location")
-          spark.sql("SELECT * FROM burritos_location ORDER BY location ASC").show(500, false)
+//          spark.sql("SELECT * FROM burritos_location ORDER BY location ASC").show(500, false)
     }
 
 
