@@ -167,7 +167,7 @@ object Main {
                           }
                           case "2" => {
                             println("The top three neighborhoods that offer the burritos with google and yelp reviews combined with an average of 4.5+ are: ")
-                            spark.sql("SELECT DISTINCT bavg.location, bavg.average, btotal.neighborhood FROM burritos_location bavg LEFT JOIN burritos_data btotal ON (bavg.id_Number = btotal.id) ORDER BY average DESC LIMIT 5").show(200, false)
+                            spark.sql("SELECT DISTINCT bavg.location, bavg.average, btotal.neighborhood FROM burritos_location bavg LEFT JOIN burritos_data btotal ON (bavg.id_Number = btotal.id) ORDER BY average DESC LIMIT 3").show(200, false)
                           }
                           case "3" => {
                             println("The top five burrito restaurants where the combination of meat and salsa average 4+ are: ")
