@@ -1,10 +1,7 @@
 import org.apache.log4j.{Level, Logger}
 import org.apache.spark.sql.SparkSession
 import org.apache.spark.sql.functions.{col, when}
-
 import scala.Console.{BLUE, BOLD, RED, RESET, WHITE}
-
-
 
 object Main {
 
@@ -28,15 +25,14 @@ object Main {
         && spark.catalog.tableExists("credentials")
         && spark.catalog.tableExists("query_data")){
 
-
+        /*In case you forget the credentials, run the following query which shows the table 'credentials'*/
+//        println("credentials table: ")
+//        spark.sql("select * from credentials").show()
 
       print("Enter username: ")
       val userInput = readLine()
       print("Enter password: ")
       val userPassword = readLine()
-
-//      println("crentials table: ")
-//      spark.sql("select * from credentials").show()
 
       val checkUser = spark.sql(s"SELECT * FROM credentials WHERE username='${userInput}' AND password='${userPassword}'").count()
 
@@ -45,6 +41,7 @@ object Main {
                     case "admin" => {
                       var continue = true
                       while (continue) {
+                        try {
                         var cdfTable = spark.table("credentials").toDF()
                         var queryTable = spark.table("query_data").toDF()
                         println(s"${BOLD}Enter \n1 => ${BOLD}${RED}C${RESET}reate Own Query " +
@@ -69,12 +66,12 @@ object Main {
                           case "2" => {
                             println("Chose option 2")
                             println("Choose your desired query: " +
-                              "\n1. What restaurant has the less expensive burrito with the best yelp review." +
-                              "\n2. Which top three neighborhoods offer the burritos with google and yelp reviews combined with an average of 4.5+" +
-                              "\n3. What are the top five burrito restaurants where the combination of meat and salsa average 4+" +
-                              "\n4. What is the place with the burrito has an overall qualification by the reviewer of 4+ which includes pico de gallo an guac" +
-                              "\n5. What is the average cost of a burrito in the Hillcrest neighborhood." +
-                              "\n6. What type of meatless burrito has the worst overall qualifications.")
+                              "\n1. What restaurant has the less expensive burrito with the best yelp review?" +
+                              "\n2. Which top three neighborhoods offer the burritos with google and yelp reviews combined with an average of 4.5+?" +
+                              "\n3. What are the top five burrito restaurants where the combination of meat and salsa average 4+?" +
+                              "\n4. What is the place with the burrito has an overall qualification by the reviewer of 4+ which includes pico de gallo an guac?" +
+                              "\n5. What is the average cost of a burrito in the Hillcrest neighborhood?" +
+                              "\n6. What type of meatless burrito has the worst overall qualifications?")
                             val option = readInt()
                             option match {
                               case 1 => {
@@ -99,7 +96,7 @@ object Main {
                               }
                               case 6 => {
                                 println("The meatless burrito with the worst overall qualifications is: ")
-                                spark.sql("SELECT location, btype, neighborhood, cost, overall FROM burritos_data WHERE beef='' AND pork='' AND chicken='' AND shrimp='' AND fish='' AND overall IS NOT NULL ORDER BY overall ASC").show(false)
+                                spark.sql("SELECT DISTINCT location, btype, neighborhood, cost, overall FROM burritos_data WHERE beef='' AND pork='' AND chicken='' AND shrimp='' AND fish='' AND overall IS NOT NULL ORDER BY overall ASC").show(false)
                               }
                             }
                           }
@@ -144,18 +141,23 @@ object Main {
                           case _ => println(s"${BOLD}${RED}ERROR:${WHITE} Unknown command ${RESET}")
                         }
                       }
+                        catch {
+                          case e: Exception => println("Not a valid option " + e)
+                        }
+                      }
                       println(s"\n${BOLD}${BLUE}See ya!\n")
                     }
                     case _ =>
                       var continue = true
                       while (continue) {
+                        try {
                         println("Choose your desired query: " +
-                          "\n1 => What restaurant has the less expensive burrito with the best yelp review." +
-                          "\n2 => Which top three neighborhoods offer the burritos with google and yelp reviews combined with an average of 4.5+" +
-                          "\n3 => What are the top five burrito restaurants where the combination of meat and salsa average 4+" +
-                          "\n4 => What is the place with the burrito has an overall qualification by the reviewer of 4+ which includes pico de gallo an guac" +
-                          "\n5 => What is the average cost of a burrito in the Hillcrest neighborhood." +
-                          "\n6 => What type of meatless burrito has the worst overall qualifications." +
+                          "\n1 => What restaurant has the less expensive burrito with the best yelp review?" +
+                          "\n2 => Which top three neighborhoods offer the burritos with google and yelp reviews combined with an average of 4.5+?" +
+                          "\n3 => What are the top five burrito restaurants where the combination of meat and salsa average 4+?" +
+                          "\n4 => What is the place with the burrito has an overall qualification by the reviewer of 4+ which includes pico de gallo an guac?" +
+                          "\n5 => What is the average cost of a burrito in the Hillcrest neighborhood?" +
+                          "\n6 => What type of meatless burrito has the worst overall qualifications?" +
                           "\n'q' => Exit ")
                         val option = readLine()
                         option match {
@@ -181,9 +183,12 @@ object Main {
                           }
                           case "6" => {
                             println("The meatless burrito with the worst overall qualifications is: ")
-                            spark.sql("SELECT location, btype, neighborhood, cost, overall FROM burritos_data WHERE beef='' AND pork='' AND chicken='' AND shrimp='' AND fish='' AND overall IS NOT NULL ORDER BY overall ASC").show(false)
+                            spark.sql("SELECT DISTINCT location, btype, neighborhood, cost, overall FROM burritos_data WHERE beef='' AND pork='' AND chicken='' AND shrimp='' AND fish='' AND overall IS NOT NULL ORDER BY overall ASC").show(false)
                           }
                           case "q" => continue = false
+                        }
+                      } catch {
+                          case e: Exception => println("Not a valid option " + e)
                         }
                       }
                       println(s"\n${BOLD}${BLUE}See ya!\n")
@@ -199,18 +204,11 @@ object Main {
 
           spark.sql("create table IF NOT EXISTS query_data(query String)")
 
-          spark.sql("create table IF NOT EXISTS burritos_data(id Int, location String, btype String, date Date, neighborhood String, address String, url String, yelp Float, google Float, chips String, cost Float, hunger Float, mass Int, density Double, length Float, circum Float, volume Float, tortilla Float, temp Float, meat Float, fillings Float, meat_filling Float, uniformity Float, salsa_quality Float, synergy Float, wrap Float, overall Float, rec String, reviewer String, notes String, unreliable String, nonsd String, beef String, pico String, guac String, cheese String, fries String, sourc String, pork String, chicken String, shrimp String, fish String, rice String, beans String, lettuce String, tomato String, bpepper String, carrots String, cabbage String, sauce String, salsa String, cilantro String, onion String, taquito String, pineapple String, ham String, chile String, nopales String, lobster String, queso String, egg String, mushroom String, bacon String, sushi String, avocado String, corn String, zucchini String) row format delimited fields terminated by ',' ")
+          spark.sql("create table IF NOT EXISTS burritos_data(id Int, location String, btype String, date Date, neighborhood String, address String, url String, yelp Float, google Float, chips String, cost Float, hunger Float, mass Int, density Double, length Float, circum Float, volume Float, tortilla Float, temp Float, meat Float, fillings Float, meat_filling Float, uniformity Float, salsa_quality Float, synergy Float, wrap Float, overall Float, rec String, reviewer String, notes String, unreliable String, nonsd String, beef String, pico String, guac String, cheese String, fries String, sourc String, pork String, chicken String, shrimp String, fish String, rice String, beans String, lettuce String, tomato String, bpepper String, carrots String, cabbage String, sauce String, salsa String, cilantro String, onion String, taquito String, pineapple String, ham String, chile String, nopales String, lobster String, queso String, egg String, mushroom String, bacon String, sushi String, avocado String, corn String, zucchini String) row format delimited fields terminated by ','")
           spark.sql("LOAD DATA LOCAL INPATH 'Burritos1.csv' INTO TABLE burritos_data ")
-//          spark.sql("SELECT * FROM burritos_data").show(300, false)
 
           spark.sql("create table IF NOT EXISTS burritos_location(id_Number Int, location String, yelp Float, google Float, average Float) row format delimited fields terminated by ',' ")
           spark.sql("LOAD DATA LOCAL INPATH 'Burritos1_avg.csv' INTO TABLE burritos_location")
-//          spark.sql("SELECT * FROM burritos_location ORDER BY location ASC").show(500, false)
     }
-
-
-
-
-
   }
 }
