@@ -1,0 +1,444 @@
+Id_Number,Location,Yelp,Google,Average
+1,Donato's taco shop,3.5,4.2,3.85
+2,Oscar's Mexican food,3.5,3.3,3.4
+3,Oscar's Mexican food,3.5,3.3,3.4
+4,Oscar's Mexican food,3.5,3.3,3.4
+5,Pollos Maria,4,3.8,3.9
+6,Pollos Maria,4,3.8,3.9
+7,Nico's Taco Shop,3,2.9,2.95
+8,Nico's Taco Shop,3,2.9,2.95
+9,Los Primos Mexican Food,3,3.7,3.35
+10,JV's Mexican Food,4,4.1,4.05
+11,JV's Mexican Food,4,4.1,4.05
+12,Tony's Fresh Mexican Food,3,4.1,3.55
+13,Tony's Fresh Mexican Food,3,4.1,3.55
+14,Tony's Fresh Mexican Food,3,4.1,3.55
+15,Tony's Fresh Mexican Food,3,4.1,3.55
+16,Taco Stand,4.5,4.4,4.45
+17,Taco Stand,4.5,4.4,4.45
+18,Graciela's Taco Shop,4,4.5,4.25
+19,Graciela's Taco Shop,4,4.5,4.25
+20,Rigoberto's Taco Shop La Jolla,2.5,4,3.25
+21,Rigoberto's Taco Shop La Jolla,2.5,4,3.25
+22,Lolita's taco shop,4,4.4,4.2
+23,Lolita's taco shop,4,4.4,4.2
+24,Taco Stand,4,4.4,4.2
+25,Taco Stand,4,4.4,4.2
+26,Lola's 7 Up Market & Deli,4.5,4.9,4.7
+27,Lola's 7 Up Market & Deli,4.5,4.9,4.7
+28,Colima's Mexican Food,4,4.2,4.1
+29,Colima's Mexican Food,4,4.2,4.1
+30,Colima's Mexican Food,4,4.2,4.1
+31,Rigoberto's Taco Shop,4,4.4,4.2
+32,Rigoberto's Taco Shop,4,4.4,4.2
+33,Raul's Mexican food,4,4.2,4.1
+34,Raul's Mexican food,4,4.2,4.1
+35,El Zarape,4,4.4,4.2
+36,El Zarape,4,4.4,4.2
+37,El Zarape,4,4.4,4.2
+38,El Zarape,4,4.4,4.2
+39,El Indio,3.5,3.9,3.7
+40,Taco stand,3.5,3.9,3.7
+41,Taco stand,3.5,3.9,3.7
+42,"Qdoba Mexican Grill, Seatac Airport",,,0
+43,Cancun Mexican & Seafood,4.5,4.1,4.3
+44,Cancun Mexican & Seafood,4.5,4.1,4.3
+45,Vallarta express,3.5,4,3.75
+46,Vallarta express,3.5,4,3.75
+47,Vallarta express,3.5,4,3.75
+48,Vallarta express,3.5,4,3.75
+49,Vallarta express,3.5,4,3.75
+50,Vallarta express,3.5,4,3.75
+51,Mikes Taco Club,4.5,4.9,4.7
+52,Mikes Taco Club,4.5,4.9,4.7
+53,La Perla Cocina,4.5,4.7,4.6
+54,La Perla Cocina,4.5,4.7,4.6
+55,Porkyland ,4,4.4,4.2
+56,Porkyland ,4,4.4,4.2
+57,Porkyland ,4,4.4,4.2
+58,Porkyland ,4,4.4,4.2
+59,Rigoberto's Taco Shop,4,4.4,4.2
+60,Rigoberto's Taco Shop,4,4.4,4.2
+61,Rigoberto's Taco Shop,4,4.4,4.2
+62,Rigoberto's Taco Shop,4,4.4,4.2
+63,Rudy's Taco Shop,4,4.3,4.15
+64,Rudy's Taco Shop,4,4.3,4.15
+65,Taco stand,4,4.3,4.15
+66,Taco stand,4,4.3,4.15
+67,California Burritos,4.5,4.4,4.45
+68,California Burritos,4.5,4.4,4.45
+69,California Burritos,4.5,4.4,4.45
+70,California Burritos,4.5,4.4,4.45
+71,California Burritos,4.5,4.4,4.45
+72,Vallarta express,4.5,4.4,4.45
+73,Vallarta express,4.5,4.4,4.45
+74,Jorge's Mexicatessen,4,4.5,4.25
+75,Jorge's Mexicatessen,4,4.5,4.25
+76,Senor Grubby's,4,4.1,4.05
+77,Senor Grubby's,4,4.1,4.05
+78,Taco stand,4,4.1,4.05
+79,Mi Asador Mexican & Seafood ,4.5,4.4,4.45
+80,Mi Asador Mexican & Seafood ,4.5,4.4,4.45
+81,Sotos Mexican Food,4.5,4.6,4.55
+82,Sotos Mexican Food,4.5,4.6,4.55
+83,Taco stand,,,0
+84,Taco stand,,,0
+85,Taco stand,,,0
+86,Taco stand,,,0
+87,Taco stand,,,0
+88,Taco stand,,,0
+89,Taco stand,,,0
+90,Vallarta express,,,0
+91,Lolita's taco shop,,,0
+92,Lolita's taco shop,,,0
+93,Lolita's taco shop,,,0
+94,Rigoberto's Taco Shop,,,0
+95,Rigoberto's Taco Shop,,,0
+96,Rigoberto's Taco Shop,,,0
+97,Rigoberto's Taco Shop,,,0
+98,Rigoberto's Taco Shop,,,0
+99,Rigoberto's Taco Shop,,,0
+100,Rigoberto's Taco Shop,,,0
+101,Karina's Taco Shop ,4,4.2,4.1
+102,Karina's Taco Shop ,4,4.2,4.1
+103,Juanita's Taco Shop,4,4.5,4.25
+104,Juanita's Taco Shop,4,4.5,4.25
+105,Goody's,3.5,4.1,3.8
+106,Pedro's Tacos,,,0
+107,Los Primos Mexican Food,,,0
+108,Kotija Jr.,,,0
+109,La Perla Cocina,,,0
+110,Goody's,,,0
+111,Goody's,,,0
+112,Chipotle,,,0
+113,Rigoberto's Taco Shop,,,0
+114,Taco Surf PB,4,4.6,4.3
+115,Taco Surf PB,4,4.6,4.3
+116,Taco Surf PB,4,4.6,4.3
+117,Roberto's Very Mexican Food,3.5,3.9,3.7
+118,Roberto's Very Mexican Food,3.5,3.9,3.7
+119,Netos Mexican Food,4.5,4.1,4.3
+120,Netos Mexican Food,4.5,4.1,4.3
+121,Lolita's Taco shop,,,0
+122,Lolita's Taco shop,,,0
+123,Lolita's Taco shop,,,0
+124,Pokirrito,4,4.3,4.15
+125,Pokirrito,4,4.3,4.15
+126,Los Primos Mexican Food,,,0
+127,El Nopalito ,4,4,4
+128,El Nopalito ,4,4,4
+129,Goody's,,,0
+130,Saguaro's ,,,0
+131,Colima's ,,,0
+132,"Alberto's 623 N Escondido Blvd, Escondido, CA 92025",,,0
+133,MXN on Washington,,,0
+134,El Zarape,,,0
+135,Lolita's,,,0
+136,Humbertos,,,0
+137,Chili Peppers,,,0
+138,Los Primos Mexican Food,,,0
+139,Los Primos Mexican Food,,,0
+140,Los Primos Mexican Food,,,0
+141,Los Primos Mexican Food,,,0
+142,Los Primos Mexican Food,,,0
+143,Los Primos Mexican Food,,,0
+144,Los tacos ,4,4.2,4.1
+145,Los tacos ,4,4.2,4.1
+146,Taco Stand,,,0
+147,Taco Stand,,,0
+148,Albertacos,3.5,3.9,3.7
+149,Albertacos,3.5,3.9,3.7
+150,El Rey Moro,4,3.8,3.9
+151,Tacos por favor,4,4.1,4.05
+152,Tacos por favor,4,4.1,4.05
+153,Tacos por favor,4,4.1,4.05
+154,El Dorado Mexican Food,4.5,4,4.25
+155,El Dorado Mexican Food,4.5,4,4.25
+156,Lolita's Taco Shop,,,0
+157,Lolita's Taco Shop,,,0
+158,Lolita's Taco Shop,,,0
+159,Lolita's Taco Shop,,,0
+160,California Burritos,,,0
+161,California Burritos,,,0
+162,California Burritos,,,0
+163,California Burritos,,,0
+164,California Burritos,,,0
+165,California Burritos,,,0
+166,California Burritos,,,0
+167,California Burritos,,,0
+168,California Burritos,,,0
+169,California Burritos,,,0
+170,California Burritos,,,0
+171,California Burritos,,,0
+172,California Burritos,,,0
+173,California Burritos,,,0
+174,California Burritos,,,0
+175,California Burritos,,,0
+176,Los Primos Mexican Food,,,0
+177,Los Primos Mexican Food,,,0
+178,Los Primos Mexican Food,,,0
+179,Papa Chito's Mexican Food,2.5,3.3,2.9
+180,Papa Chito's Mexican Food,2.5,3.3,2.9
+181,El Pueblo Mexican Food,4,4.7,4.35
+182,Burros and Fries,3.5,4.1,3.8
+183,Burros and Fries,3.5,4.1,3.8
+184,King Burrito,4,3.9,3.95
+185,King Burrito,4,3.9,3.95
+186,Taco Stand,,,0
+187,Taco Stand,,,0
+188,Carmen's Mexican Food,4,4.2,4.1
+189,Carmen's Mexican Food,4,3.9,3.95
+190,Senor Panchos,4,4.2,4.1
+191,Senor Panchos,4,4.2,4.1
+192,Los Cabos,4,4.1,4.05
+193,Los Cabos,,,0
+194,Rubios UCSD,3.5,3.4,3.45
+195,Lucha Libre North Park,3.5,4.3,3.9
+196,Lucha Libre North Park,3.5,4.3,3.9
+197,Lucha Libre North Park,3.5,4.3,3.9
+198,Lucha Libre North Park,3.5,4.3,3.9
+199,Lucha Libre North Park,3.5,4.3,3.9
+200,Lucha Libre North Park,3.5,4.3,3.9
+201,Lucha Libre North Park,3.5,4.3,3.9
+202,Lucha Libre North Park,3.5,4.3,3.9
+203,Lucha Libre North Park,3.5,4.3,3.9
+204,Lucha Libre North Park,3.5,4.3,3.9
+205,Lucha Libre North Park,3.5,4.3,3.9
+206,Lucha Libre North Park,3.5,4.3,3.9
+207,Lucha Libre North Park,3.5,4.3,3.9
+208,Lucha Libre North Park,3.5,4.3,3.9
+209,Lucha Libre North Park,3.5,4.3,3.9
+210,Lucha Libre North Park,3.5,4.3,3.9
+211,Lucha Libre North Park,3.5,4.3,3.9
+212,Lucha Libre North Park,3.5,4.3,3.9
+213,Lucha Libre North Park,3.5,4.3,3.9
+214,Lucha Libre North Park,3.5,4.3,3.9
+215,Lucha Libre North Park,3.5,4.3,3.9
+216,Lucha Libre North Park,3.5,4.3,3.9
+217,Lucha Libre North Park,3.5,4.3,3.9
+218,Lucha Libre North Park,3.5,4.3,3.9
+219,Lucha Libre North Park,3.5,4.3,3.9
+220,Lucha Libre North Park,3.5,4.3,3.9
+221,Lucha Libre North Park,3.5,4.3,3.9
+222,Lucha Libre North Park,3.5,4.3,3.9
+223,Tacos La Bala,4.5,4.1,4.3
+224,Tacos La Bala,4.5,4.1,4.3
+225,Cancun Mexican & Seafood,,,0
+226,Cancun Mexican & Seafood,,,0
+227,Roberto's Taco Shop Clairemont,4,4,4
+228,Roberto's Taco Shop Clairemont,4,4,4
+229,Roberto's Taco Shop Clairemont,4,4,4
+230,Roberto's Taco Shop Clairemont,4,4,4
+231,Chipotle,3,4.2,3.6
+232,Taco Stand,,,0
+233,Taco Stand,,,0
+234,Los Tacos,,,0
+235,Los Tacos,,,0
+236,El Cuervo,4,4.3,4.15
+237,El Cuervo,4,4.3,4.15
+238,El Torrito Foods,4,4.4,4.2
+239,El Torrito Foods,4,4.4,4.2
+240,La Morena Taco Shop and Seafood,4.5,4.7,4.6
+241,Taco Villa,3.5,3.5,3.5
+242,Rigoberto's Taco Shop,,,0
+243,Rigoberto's Taco Shop,,,0
+244,Rigoberto's Taco Shop,,,0
+245,Rigoberto's Taco Shop,,,0
+246,Taco Villa,,,0
+247,Valentines Mexican Food,4,4,4
+248,Valentines Mexican Food,4,4,4
+249,Matador Mexican Food,4.5,4,4.25
+250,Matador Mexican Food,4.5,4,4.25
+251,Jose's Taco,4,3.8,3.9
+252,Cortez Mexican Food,4.2,4,4.1
+253,California Burrito Company,3.5,4.4,3.95
+254,California Burrito Company,3.5,4.4,3.95
+255,California Burrito Company,3.5,4.4,3.95
+256,Taco Villa,,,0
+257,Taco Villa,,,0
+258,Storehouse Kitchen ,,,0
+259,California Burrito Company,,,0
+260,California Burrito Company,,,0
+261,Taco Villa,,,0
+262,California Burritos,,,0
+263,California Burritos,,,0
+264,Taco Villa,,,0
+265,Taco Villa,,,0
+266,Taco Villa,,,0
+267,Taco Villa,,,0
+268,Taco Villa,,,0
+269,Taco Stand Encinitas,4,4.4,4.2
+270,Taco Stand Encinitas,4,4.4,4.2
+271,Donato's Taco Shop,,,0
+272,Donato's Taco Shop,,,0
+273,Ortiz's Taco Shop #2,4,4.2,4.1
+274,Ortiz's Taco Shop #2,4,4.2,4.1
+275,Ortiz's Taco Shop #2,4,4.2,4.1
+276,Ortiz's Taco Shop #2,4,4.2,4.1
+277,El Portal Fresh Mexican Grill,4,4.4,4.2
+278,El Portal Fresh Mexican Grill,4,4.4,4.2
+279,El Zarape,,,0
+280,El Zarape,,,0
+281,El Zarape,,,0
+282,El Zarape,,,0
+283,Famoso Mexican Street Food,4.5,3.9,4.2
+284,Valentines Mexican Food,,,0
+285,Valentines Mexican Food,,,0
+286,Valentines Mexican Food,,,0
+287,Valentines Mexican Food,,,0
+288,Valentines Mexican Food,,,0
+289,Cancun Mexican & Seafood,,,0
+290,Cancun Mexican & Seafood,,,0
+291,Los Panchos Taco Shop,3,3.4,3.2
+292,Los Panchos Taco Shop,3,3.4,3.2
+293,Los Panchos Taco Shop,3,3.4,3.2
+294,Pollos Maria,,,0
+295,Pollos Maria,,,0
+296,El Pollo Loco,3.5,4.1,3.8
+297,Gloria's Taco Shop,4,4.3,4.15
+298,Gloria's Taco Shop,4,4.3,4.15
+299,Mr. Ruribertos Taco Shop ,3.5,3.7,3.6
+300,Mr. Ruribertos Taco Shop ,3.5,3.7,3.6
+301,Mister Falafel,4.5,4.6,4.55
+302,Rigoberto's Taco Shop,,,0
+303,Rigoberto's Taco Shop,,,0
+304,Los Tacos,,,0
+305,Los Tacos,,,0
+306,Taco Villa,,,0
+307,Lupe's Taco Shop,3.5,4.5,4
+308,Lupe's Taco Shop,3.5,4.5,4
+309,Lupe's Taco Shop,3.5,4.5,4
+310,Lupe's Taco Shop,3.5,4.5,4
+311,Los Tacos,,,0
+312,Los Tacos,,,0
+313,Taco Villa,,,0
+314,Taco Villa,,,0
+315,Rigoberto's Taco Shop La Jolla,,,0
+316,Rigoberto's Taco Shop La Jolla,,,0
+317,Taco Villa,,,0
+318,Cotixan,4,4,4
+319,Los Tacos,,,0
+320,Los Tacos,,,0
+321,Los Tacos,,,0
+322,Los Tacos,,,0
+323,Lourdes,4,4.7,4.35
+324,Lourdes,4,4.7,4.35
+325,Vallarta Express,,,0
+326,California burritos,,,0
+327,California burritos,,,0
+328,California burritos,,,0
+329,California burritos,,,0
+330,California burritos,,,0
+331,California burritos,,,0
+332,Los palmitos,4,4.1,4.05
+333,Los palmitos,4,4.1,4.05
+334,Taco Villa,,,0
+335,Taco Villa,,,0
+336,Lupe's Taco Shop,,,0
+337,Lupe's Taco Shop,,,0
+338,Filiberto's,3,3.8,3.4
+339,Filiberto's,3,3.8,3.4
+340,Don Carlos Taco Shop,4,4.5,4.25
+341,Don Carlos Taco Shop,,,0
+342,Los Tacos 2,4.5,5,4.75
+343,Rubios UCSD,,,0
+344,Rigoberto's Taco Shop,,,0
+345,Rigoberto's Taco Shop,,,0
+346,El Dorado Mexican Food,,,0
+347,El Dorado Mexican Food,,,0
+348,Los Tacos 2,,,0
+349,Roberto's Taco Shop Hillcrest,4,4.2,4.1
+350,Roberto's Taco Shop Hillcrest,4,4.2,4.1
+351,Roberto's Taco Shop Hillcrest,4,4.2,4.1
+352,Burros and Fries,,,0
+353,Burros and Fries,,,0
+354,Taco Stand Encinitas ,,,0
+355,Taco Stand Encinitas,,,0
+356,Cotixan,,,0
+357,Vallarta Express,,,0
+358,Vallarta Express,,,0
+359,Caliente Mexican Food,3.5,4.4,3.95
+360,Caliente Mexican Food,3.5,4.4,3.95
+361,Caliente Mexican Food,3.5,4.4,3.95
+362,Caliente Mexican Food,3.5,4.4,3.95
+363,Burrito Factory,4.5,4.8,4.65
+364,Taco Villa,,,0
+365,Taco VIlla,,,0
+366,Los Tacos 2,,,0
+367,Los Tacos 2,,,0
+368,Valentines Mexican Food,,,0
+369,Valentines Mexican Food,,,0
+370,Vallarta Express,,,0
+371,Lalo's Tacos,3,3.9,3.45
+372,Roberto's Taco Shop Hillcrest,,,0
+373,Roberto's Taco Shop Hillcrest,,,0
+374,Kotija Jr,4,4.2,4.1
+375,Kotija Jr,4,4.2,4.1
+376,El Rey Moro,,,0
+377,El Rey Moro,,,0
+378,Taco Villa,,,0
+379,Taco Villa,,,0
+380,Los Tacos,,,0
+381,Los Tacos,,,0
+382,Rigoberto's Taco Shop,,,0
+383,Rigoberto's Taco Shop,,,0
+384,Burrito Box,4,4.5,4.25
+385,Taco Stand,,,0
+386,Taco Stand,,,0
+387,Lolita's Taco Shop,,,0
+388,El Patron,4.5,3.8,4.15
+389,La Posta de Acapulco,3.5,4.3,3.9
+390,Los Tacos 2,,,0
+391,Rigoberto's Taco Shop,,,0
+392,Taco Villa,,,0
+393,Taco Villa,,,0
+394,Taco Villa,,,0
+395,Mikes Taco Club,,,0
+396,Mikes Taco Club,,,0
+397,Taco Villa,,,0
+398,El Zarape,,,0
+399,Taco Villa,,,0
+400,Taco Villa,,,0
+401,Lucha Libre Carlsbad ,3.5,3.8,3.65
+402,Lucha Libre Carlsbad ,3.5,3.8,3.65
+403,Lucha Libre Carlsbad ,3.5,3.8,3.65
+404,Lucha Libre Carlsbad ,3.5,3.8,3.65
+405,Taco Villa,,,0
+406,Taco Villa,,,0
+407,Taco Villa,,,0
+408,Tony's Fresh Mexican Food,,,0
+409,Tony's Fresh Mexican Food,,,0
+410,Tony's Fresh Mexican Food,,,0
+411,Tony's Fresh Mexican Food,,,0
+412,Tony's Fresh Mexican Food,,,0
+413,Taco Stand,,,0
+414,Kotija Jr,,,0
+415,Valentine's Mexican Food,,,0
+416,Valentine's Mexican Food,,,0
+417,Valentine's Mexican Food,,,0
+418,Valentine's Mexican Food,,,0
+419,Valentine's Mexican Food,,,0
+420,Valentine's Mexican Food,,,0
+421,Valentine's Mexican Food,,,0
+422,Valentine's Mexican Food,,,0
+423,Valentine's Mexican Food,,,0
+424,"Friesen, Upton and Witting",1.04,1.51,1.275
+425,Grant-Wilderman,2.92,4.66,3.79
+426,McGlynn-Schulist,2.99,3.31,3.15
+427,Lueilwitz Group,4.07,3.86,3.965
+428,"Gislason, Grimes and Wintheiser",4.67,4.06,4.365
+429,Zemlak and Sons,4.84,2.28,3.56
+430,Kulas Inc,4.7,1.86,3.28
+431,Gusikowski Group,1.61,3.92,2.765
+432,Heller-Trantow,4.14,2.46,3.3
+433,Spencer LLC,2.19,2.94,2.565
+434,Adams Inc,3.8,4.55,4.175
+435,Tillman Inc,3.02,2.46,2.74
+436,Prohaska-Koelpin,4.61,3.85,4.23
+437,Stokes Inc,3.47,2.03,2.75
+438,Fritsch LLC,1.72,4.27,2.995
+439,"Zboncak, Bruen and Armstrong",3.57,2.09,2.83
+440,Funk-Jaskolski,2.15,2.48,2.315
+441,Pfannerstill-Nicolas,4.06,1.09,2.575
+442,Hand LLC,3.35,1.83,2.59
+443,"Schimmel, Zieme and Lindgren",1.96,1.5,1.73
