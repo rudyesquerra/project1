@@ -145,7 +145,7 @@ object Main {
                           case e: Exception => println("Not a valid option " + e)
                         }
                       }
-                      println(s"\n${BOLD}${BLUE}See ya!\n")
+                      println(s"\n${BOLD}${BLUE}See ya!\n${RESET}")
                     }
                     case _ =>
                       var continue = true
@@ -191,7 +191,7 @@ object Main {
                           case e: Exception => println("Not a valid option " + e)
                         }
                       }
-                      println(s"\n${BOLD}${BLUE}See ya!\n")
+                      println(s"\n${BOLD}${BLUE}See ya!\n${RESET}")
                   }
 
       }
