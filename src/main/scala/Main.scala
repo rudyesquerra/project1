@@ -197,7 +197,7 @@ object Main {
       }
         else println(s"${BOLD}${RED}Incorrect User or Password!${RESET}")
       } else {
-          var cdf = spark.read.option("header", true).csv("credentials.csv") //created schema reading from a csv file
+          var cdf = spark.read.option("header", true).csv("C:\\input\\credentials.csv") //created schema reading from a csv file
           .withColumnRenamed("_c0","username")
           .withColumnRenamed("_c1","password")
           cdf.write.mode("overwrite").saveAsTable("credentials")
@@ -205,10 +205,10 @@ object Main {
           spark.sql("create table IF NOT EXISTS query_data(query String)")
 
           spark.sql("create table IF NOT EXISTS burritos_data(id Int, location String, btype String, date Date, neighborhood String, address String, url String, yelp Float, google Float, chips String, cost Float, hunger Float, mass Int, density Double, length Float, circum Float, volume Float, tortilla Float, temp Float, meat Float, fillings Float, meat_filling Float, uniformity Float, salsa_quality Float, synergy Float, wrap Float, overall Float, rec String, reviewer String, notes String, unreliable String, nonsd String, beef String, pico String, guac String, cheese String, fries String, sourc String, pork String, chicken String, shrimp String, fish String, rice String, beans String, lettuce String, tomato String, bpepper String, carrots String, cabbage String, sauce String, salsa String, cilantro String, onion String, taquito String, pineapple String, ham String, chile String, nopales String, lobster String, queso String, egg String, mushroom String, bacon String, sushi String, avocado String, corn String, zucchini String) row format delimited fields terminated by ','")
-          spark.sql("LOAD DATA LOCAL INPATH 'Burritos1.csv' INTO TABLE burritos_data ")
+          spark.sql("LOAD DATA LOCAL INPATH 'file:///input/Burritos1.csv' INTO TABLE burritos_data ")
 
           spark.sql("create table IF NOT EXISTS burritos_location(id_Number Int, location String, yelp Float, google Float, average Float) row format delimited fields terminated by ',' ")
-          spark.sql("LOAD DATA LOCAL INPATH 'Burritos1_avg.csv' INTO TABLE burritos_location")
+          spark.sql("LOAD DATA LOCAL INPATH 'file:///input/Burritos1_avg.csv' INTO TABLE burritos_location")
     }
   }
 }
